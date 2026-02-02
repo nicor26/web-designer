@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nicolás Rodríguez - Creador de Páginas Web</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset básico y estilos globales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #F3F4F6; /* Gris claro */
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* Header/Hero */
+        header {
+            background-color: #6B46C1; /* Violeta principal */
+            color: white;
+            padding: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="%23F3F4F6"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="%23F3F4F6"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%23F3F4F6"/></svg>') no-repeat center bottom;
+            background-size: cover;
+        }
+        .hero-content {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-content h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .hero-content h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+        .hero-content p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: white;
+            color: #6B46C1;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            background-color: #F3F4F6;
+            transform: translateY(-2px);
+        }
+        /* Sección descripción */
+        .description {
+            padding: 60px 0;
+            background-color: white;
+        }
+        .description h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #6B46C1;
+        }
+        .description p {
+            text-align: center;
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        /* Sección planes */
+        .plans {
+            padding: 60px 0;
+            background-color: #F3F4F6;
+        }
+        .plans h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: #6B46C1;
+        }
+        .plans-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+        .plan-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .plan-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+        }
+        .plan-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #6B46C1;
+        }
+        .plan-card .price {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .plan-card ul {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        .plan-card li {
+            margin-bottom: 10px;
+        }
+        .plan-card .cta-button {
+            margin-top: 20px;
+        }
+        /* Footer */
+        footer {
+            background-color: #6B46C1;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        footer p {
+            margin-bottom: 10px;
+        }
+        /* Botón WhatsApp fijo */
+        .whatsapp-fixed {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            text-decoration: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        .whatsapp-fixed:hover {
+            transform: scale(1.1);
+        }
+        /* Animaciones sutiles */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Responsive (mobile first) */
+        @media (min-width: 768px) {
+            .plans-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+            .hero-content h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Hero -->
+    <header>
+        <div class="container hero-content">
+            <h1>Nicolás Rodríguez</h1>
+            <h2>Creador de páginas web</h2>
+            <p>Especializado en crear páginas web modernas y funcionales que ayudan a tu negocio a vender más y conectar directamente con tus clientes a través de WhatsApp.</p>
+            <a href="https://wa.me/+5492241566833?text=Hola,%20estoy%20interesado%20en%20tus%20servicios%20de%20páginas%20web" class="cta-button" target="_blank">Contactar por WhatsApp</a>
+        </div>
+    </header>
+
+    <!-- Sección descripción -->
+    <section class="description fade-in" id="description">
+        <div class="container">
+            <h2>¿Por qué tu negocio necesita una página web?</h2>
+            <p>En la era digital, una página web es esencial para atraer nuevos clientes y aumentar tus ventas. Una web profesional te permite mostrar tus productos o servicios de manera atractiva, generar confianza y facilitar la comunicación directa a través de WhatsApp, convirtiendo visitantes en clientes reales.</p>
+        </div>
+    </section>
+
+    <!-- Sección planes -->
+    <section class="plans fade-in" id="plans">
+        <div class="container">
+            <h2>Nuestros Planes</h2>
+            <div class="plans-grid">
+                <div class="plan-card">
+                    <h3>Básico</h3>
+                    <div class="price">$30</div>
+                    <ul>
+                        <li>1 página web</li>
+                        <li>4 a 7 días hábiles</li>
+                        <li>Personalización básica</li>
+                        <li>Botón WhatsApp</li>
+                    </ul>
+                    <a href="https://wa.me/+5492241566833?text=Hola,%20estoy%20interesado%20en%20el%20plan%20Básico" class="cta-button" target="_blank">Elegir Plan</a>
+                </div>
+                <div class="plan-card">
+                    <h3>Medio</h3>
+                    <div class="price">$45</div>
+                    <ul>
+                        <li>2 días de cambios</li>
+                        <li>Paleta de colores más amplia</li>
+                        <li>4 a 7 días hábiles</li>
+                    </ul>
+                    <a href="https://wa.me/+5492241566833?text=Hola,%20estoy%20interesado%20en%20el%20plan%20Medio" class="cta-button" target="_blank">Elegir Plan</a>
+                </div>
+                <div class="plan-card">
+                    <h3>Pro</h3>
+                    <div class="price">$55</div>
+                    <ul>
+                        <li>7 días de cambios</li>
+                        <li>Entrega en 3 días</li>
+                        <li>Personalización avanzada</li>
+                    </ul>
+                    <a href="https://wa.me/+5492241566833?text=Hola,%20estoy%20interesado%20en%20el%20plan%20Pro" class="cta-button" target="_blank">Elegir Plan</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Nicolás Rodríguez. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Botón WhatsApp fijo -->
+    <a href="https://wa.me/+5492241566833?text=Hola,%20estoy%20interesado%20en%20tus%20servicios" class="whatsapp-fixed" target="_blank">
+        &#9742; <!-- Icono de WhatsApp -->
+    </a>
+
+    <script>
+        // JavaScript para animaciones sutiles (fade-in al hacer scroll)
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            // Observar secciones con fade-in
+            const fadeInElements = document.querySelectorAll('.fade-in');
+            fadeInElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
